@@ -23,7 +23,7 @@ def messageToBinary(message):
 
 # hide 'data' in 'image_name' 
 # 'key' format is 'XY', X = is R,G, or B: Y is bit position 1 for LSB
-def encode(image_name, secret_message, key):
+def encode(image_name, secret_message, key="R1"):
     
     image = Image.open(image_name)
 
@@ -67,7 +67,7 @@ def encode(image_name, secret_message, key):
             
     return image
 
-def decode(image_name, key):
+def decode(image_name, key="R1"):
 
     image = Image.open(image_name)
 
@@ -92,7 +92,10 @@ def decode(image_name, key):
     all_bytes = [ binary_data[i: i+8] for i in range(0, len(binary_data), 8) ]
     decoded_data = ""
     for byte in all_bytes:
-        decoded_data += chr(int(byte, 2))
+        c = int(byte,2)
+        if (c==0) or (c > 127):
+            return "No message found"
+        decoded_data += chr(c)
         if decoded_data[-5:] == EOM: #check if we have reached the end of message
             break
 
@@ -138,6 +141,7 @@ def selfTest():
             key = channel[testNum%3] + str(testNum%8+1)
             i = encode(fileT, secret, key)
             write(fileO, i)
+            key = channel[testNum%3] + str(testNum%8+1)
             pText = decode(fileO, key)
             result = ": Passed" if secret == pText else ": Failed"
             print("Test " + t + "->" + o + result )
@@ -149,4 +153,4 @@ def selfTest():
             
 # Module test code
 if __name__ == "__main__":
-    print( "Tests passed" if selfTest2() else "Failed" )
+    print( "Tests passed" if selfTest() else "Failed" )
