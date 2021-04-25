@@ -55,11 +55,11 @@ def encode(image_name, secret_message, key="R1"):
                 pixel[0] = int(xx, 2)
             if( keyColor == 'G' or keyColor == 'g' ):
                 g = messageToBinary(pixel[1])
-                xx = g[:keyBit] + binary_secret_msg[data_index] + r[keyBit+1:];
+                xx = g[:keyBit] + binary_secret_msg[data_index] + g[keyBit+1:];
                 pixel[1] = int(xx, 2)
             if( keyColor == 'B' or keyColor == 'b' ):
                 b = messageToBinary(pixel[2])
-                xx = b[:keyBit] + binary_secret_msg[data_index] + r[keyBit+1:];
+                xx = b[:keyBit] + binary_secret_msg[data_index] + b[keyBit+1:];
                 pixel[2] = int(xx, 2)
                 
             data_index += 1
