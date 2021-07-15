@@ -1,4 +1,7 @@
 # Steganography
+
+### New to steganography?  [Start here](https://towardsdatascience.com/hiding-data-in-an-image-image-steganography-using-python-e491b68b1372)  
+  
 This repo supports a GenCyber camp lesson on pyton programming using image based stenanogrpahy.
 The audience isn't expected to be programming or security knowledgeable.
 
