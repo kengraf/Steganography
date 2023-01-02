@@ -4,7 +4,7 @@
 
 ### Steganograhy in cyberattacks: [SecureList Blog](https://securelist.com/steganography-in-contemporary-cyberattacks/79276/)  
   
-This repo supports a GenCyber camp lesson on pyton programming using image based stenanogrpahy.
+This repo supports a GenCyber camp lesson on pyton programming using image based stenanography.
 The audience isn't expected to be programming or security knowledgeable.
 
 How to use image based steganogrpahy [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kengraf/Steganography/HEAD)
